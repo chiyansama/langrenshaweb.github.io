@@ -1,37 +1,249 @@
-## Welcome to GitHub Pages
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>狼人杀发牌员</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <link href="https://cdn.bootcss.com/iview/2.0.0-rc.14/styles/iview.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/vue/2.3.3/vue.min.js"></script>
+    <script src="https://cdn.bootcss.com/iview/2.0.0-rc.14/iview.min.js"></script>
+    <style>
+        body {
+            background-color: #f5f7f9;
+        }
+        .vertical-center-modal{
+            display: flex;
+            align-items: center;
+            justify-content: center;            
+        }
+        .vertical-center-modal .ivu-modal{
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align:center;">欢迎来到狼人杀Web助手【手机端请横屏使用】</h1>
+<div id="app">
+    <br>
+    <h2 style="text-align:center;">自定义角色清单</h2>
+    <div style="display: flex; justify-content: center;align-items: center;flex-direction:column">
+        <div flex-direction:column>
+            角色名：<input type="text" v-model="rolex.name">
+            角色属性：<input type="text" v-model="rolex.description">
+            角色logo：
+            <select v-model="rolex.cardImage">
+                <option value="./cardImage/114514.jpg">选我不要乱动</option>
+                <option value="./cardImage/114514.jpg">选上面那个不要乱动</option>
+            </select>
+            <button @click="tianjia">添加</button>
+        </div>
+<br>
+        <table border="2">
+            <tr>
+                <th>角色名</th>
+                <th>角色属性</th>
+                <th>角色数量</th>
+                <th>角色图片</th>
+            </tr>
+            <tr v-for="(item,index) in roles"  :key="index">
+                <td>{{item.name}}</td>
+                <td>{{item.description}}</td>
+                <td>{{item.number}}</td>
+                <td>{{item.cardImage}}</td>
+                <td>
+                    <><button @click="del(index)">删除</button>
+                </td>
+            </tr>
+        </table>
+    </margin>
+</div>
+    <!--导航栏-->
+    <div style="display: flex; justify-content: center;align-items: center;flex-direction:column">    
+        <i-menu mode="horizontal" theme="sun" active-name="1">
+        <Menu-item name="1">
+            <Icon type="ionic"></Icon>
+        </Menu-item>
+        <i-button style="margin-left: 20px" type="primary" @click="handleGameStart">开始游戏！</i-button>
+    </i-menu>
+    <br></div>
 
-You can use the [editor on GitHub](https://github.com/chiyansama/langrenshaweb.github.io/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/chiyansama/langrenshaweb.github.io/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+    <!--卡片行-->
+    <h2 style="text-align:center;">角色数量调整</h2>
+    <Row type="flex" justify="center">
+        <i-col style="text-align: center">
+            <Card v-for="role in roles" :style="cardStyle">
+                <div style="text-align:center">
+                    <Row type="flex" justify="space-between" align="top">
+                        <i-col span="6">
+                            <img :src="role.cardImage" alt="" width="100%">
+                        </i-col>
+                        <i-col span="16" style="text-align: left">
+                            <i-form :model="role" :label-width="80" label-position="left">
+                                <Form-item prop="number" :label="role.name">
+                                    <Input-number :max="10" :min="0" v-model="role.number"></Input-number>
+                                </Form-item>
+                            </i-form>
+                            <span style="font-size: 12px; display:block; margin-top: 0px">{{ role.description }}</span>
+                        </i-col>
+                    </Row>
+                </div>
+            </Card>
+        </i-col>
+    </Row>
+    <Modal
+        v-model="roleModal"
+        class-name="vertical-center-modal"
+        style="text-align: center"
+        :mask-closable="false">
+        <i-table :columns="roleTableColumn" :data="roleTable" stripe border size="small">
+        </i-table>
+        <div slot="footer">
+            <i-button type="success" long large @click="roleModal = false">转到游戏界面</i-button>
+        </div>
+    </Modal>
+</div>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            roleModal: false,
+            cardStyle: {
+                display: 'inline-block',
+                width: window.innerWidth < 768? '90%' : '30%',
+                height: '130px',
+                margin: window.innerWidth < 768? '0 0 10px 0' : '0 15px 15px 15px',
+            },
+            roles: [],
+            rolex:{
+                name: '',
+                    description: '',
+                    number: 0,
+                    cardImage: ''
+            },
+            roleTableColumn: [{
+                title: '号码',
+                key: 'index',
+                align: 'center'
+            },{
+                title: '身份',
+                key: 'role',
+                align: 'center'
+            }],
+            roleTable: [],
+        },
+        created() {
+                setTimeout(()=>{
+                    this.roles = [{
+                    name: '村民',
+                    description: '好人阵营最强角色',
+                    number: 3,
+                    cardImage: './cardImage/村民.jpg'
+                },
+                {
+                    name: '狼人',
+                    description: '一个小知识：金刚狼(wolverine)并不是狼人。',
+                    number: 3,
+                    cardImage: './cardImage/狼人.jpg'
+                },
+                {
+                    name: '预言家',
+                    description: '一个没有什么用的角色。',
+                    number: 1,
+                    cardImage: './cardImage/预言家.jpg'
+                },
+                {
+                    name: '女巫',
+                    description: '一个被影子觊觎的角色。常见功能是瞬间领导狼人方获得胜利。',
+                    number: 1,
+                    cardImage: './cardImage/女巫.jpg'
+                },
+                {
+                    name: '猎人',
+                    description: '一个同样没有什么用的角色。',
+                    number: 1,
+                    cardImage: './cardImage/猎人.jpg'
+                },
+                {
+                    name: '守卫',
+                    description: '一个还是没有什么用的角色',
+                    number: 0,
+                    cardImage: './cardImage/守卫.jpg'
+                },
+                {
+                    name: '白痴',
+                    description: '这还要解释什么？？？',
+                    number: 0,
+                    cardImage: './cardImage/白痴.jpg'
+                },
+                {
+                    name: '野孩子',
+                    description: '呃。',
+                    number: 0,
+                    cardImage: './cardImage/野孩子.jpg'
+                },
+                {
+                    name: '影子',
+                    description: '嘿嘿嘿嘿嘿嘿嘿嘿嘿',
+                    number: 0,
+                    cardImage: './cardImage/小女孩.jpg'
+                },
+                {
+                    name: '骑士',
+                    description: '「我的这把刀，是涂满了毒药的短刀。」',
+                    number: 0,
+                    cardImage: './cardImage/老骑士与生锈的剑.jpg'
+                },
+                {
+                    name: '白狼王',
+                    description: '不爆捏着过年？',
+                    number: 0,
+                    cardImage: './cardImage/白狼王.jpg'
+                },]
+                },500)
+            },
+        methods: {
+            del(i){
+                console.log(i);
+                this.roles.splice(i,1)
+            },
+            tianjia(){
+             console.log(this.rolex);
+             this.roles.push(this.rolex);
+             this.rolex = {
+                name: '',
+                    description: '',
+                    number: 0,
+                    cardImage: ''
+            }
+            },
+            handleGameStart() {
+                this.roleTable = [];
+                var players = [];
+                for (role of this.roles) {
+                    var numbers = role.number;
+                    while (numbers--) {
+                        players.push(role.name);
+                    }
+                }
+                players = players.sort((a, b) => Math.random() > 0.5? -1 : 1);
+                players = players.sort((a, b) => Math.random() > 0.5? -1 : 1);
+                players = players.sort((a, b) => Math.random() > 0.5? -1 : 1);
+                players = players.sort((a, b) => Math.random() > 0.5? -1 : 1);
+                players = players.sort((a, b) => Math.random() > 0.5? -1 : 1);
+                var a = [];
+                players.forEach((value, index) => {
+                    this.roleTable.push({
+                        index: index+1,
+                        role: value
+                    });
+                })
+                this.roleModal = true;
+            },
+            add(){
+             console.log(this.roles)  
+            },
+        },
+    })
+  </script>
+</body>
+</html>
