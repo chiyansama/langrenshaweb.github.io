@@ -136,6 +136,43 @@
             <input type="radio" name="radios11" value="12" checked><label>没死啦</label>
             <input type="radio" name="radios11" value="12" checked><label>放逐啦</label>
         </div>
+<input type="button" value="倒计时30【白天】" name="get_msg" onclick="set_time(this)"/> 
+<script>
+var init_down_time = 30;			    /*倒计时总时长*/
+var down_time = 30;				/*倒计时变量*/
+function set_time(val) 
+{ 	
+	if(down_time == 0) { 
+		val.removeAttribute("disabled");    	/*移除框的属性*/
+		val.value="倒计时30秒【白天】"; 
+		down_time = init_down_time;
+	}else{ 
+		val.setAttribute("disabled",true); 		/*设置框的属性*/
+		val.value="倒计时30秒【白天】(" + down_time + ")"; 
+		down_time--; 
+			
+		setTimeout(function(){set_time(val)},1000);   	/*设置一秒*/
+	}  							
+} 
+</script>
+<script>
+    var init_down_time = 40;			    /*倒计时总时长*/
+    var down_time = 40;				/*倒计时变量*/
+    function set_time(val) 
+    { 	
+        if(down_time == 0) { 
+            val.removeAttribute("disabled");    	/*移除框的属性*/
+            val.value="倒计时40秒【晚上】"; 
+            down_time = init_down_time;
+        }else{ 
+            val.setAttribute("disabled",true); 		/*设置框的属性*/
+            val.value="倒计时40秒【晚上】(" + down_time + ")"; 
+            down_time--; 
+                
+            setTimeout(function(){set_time(val)},1000);   	/*设置一秒*/
+        }  							
+    } 
+    </script>
     </Modal>
 </div>
 <script>
