@@ -98,7 +98,43 @@
         <i-table :columns="roleTableColumn" :data="roleTable" stripe border size="small">
         </i-table>
         <div slot="footer">
-            <i-button type="success" long large @click="roleModal = false">转到游戏界面</i-button>
+            1.<input type="text"><input type="radio" name="radios" value="1" checked><label>死了啦</label>
+            <input type="radio" name="radios" value="1" checked><label>没死啦</label>
+            <input type="radio" name="radios" value="1" checked><label>放逐啦</label><br>
+            2.<input type="text"><input type="radio" name="radios1" value="2" checked><label>死了啦</label>
+            <input type="radio" name="radios1" value="2" checked><label>没死啦</label>
+            <input type="radio" name="radios1" value="2" checked><label>放逐啦</label><br>
+            3.<input type="text"><input type="radio" name="radios2" value="3" checked><label>死了啦</label>
+            <input type="radio" name="radios2" value="3" checked><label>没死啦</label>
+            <input type="radio" name="radios2" value="3" checked><label>放逐啦</label><br>
+            4.<input type="text"><input type="radio" name="radios3" value="4" checked><label>死了啦</label>
+            <input type="radio" name="radios3" value="4" checked><label>没死啦</label>
+            <input type="radio" name="radios3" value="4" checked><label>放逐啦</label><br>
+            5.<input type="text"><input type="radio" name="radios4" value="5" checked><label>死了啦</label>
+            <input type="radio" name="radios4" value="5" checked><label>没死啦</label>
+            <input type="radio" name="radios4" value="5" checked><label>放逐啦</label><br>
+            6.<input type="text"><input type="radio" name="radios5" value="6" checked><label>死了啦</label>
+            <input type="radio" name="radios5" value="6" checked><label>没死啦</label>
+            <input type="radio" name="radios5" value="6" checked><label>放逐啦</label><br>
+            7.<input type="text"><input type="radio" name="radios6" value="7" checked><label>死了啦</label>
+            <input type="radio" name="radios6" value="7" checked><label>没死啦</label>
+            <input type="radio" name="radios6" value="7" checked><label>放逐啦</label><br>
+            8.<input type="text"><input type="radio" name="radios7" value="8" checked><label>死了啦</label>
+            <input type="radio" name="radios7" value="8" checked><label>没死啦</label>
+            <input type="radio" name="radios7" value="8" checked><label>放逐啦</label><br>
+            9.<input type="text"><input type="radio" name="radios8" value="9" checked><label>死了啦</label>
+            <input type="radio" name="radios8" value="9" checked><label>没死啦</label>
+            <input type="radio" name="radios8" value="9" checked><label>放逐啦</label><br>
+            10.<input type="text"><input type="radio" name="radios9" value="10" checked><label>死了啦</label>
+            <input type="radio" name="radios9" value="10" checked><label>没死啦</label>
+            <input type="radio" name="radios9" value="10" checked><label>放逐啦</label><br>
+            11.<input type="text"><input type="radio" name="radios10" value="11" checked><label>死了啦</label>
+            <input type="radio" name="radios10" value="11" checked><label>没死啦</label>
+            <input type="radio" name="radios10" value="11" checked><label>放逐啦</label><br>
+            12.<input type="text">
+            <input type="radio" name="radios11" value="12" checked><label>死了啦</label>
+            <input type="radio" name="radios11" value="12" checked><label>没死啦</label>
+            <input type="radio" name="radios11" value="12" checked><label>放逐啦</label>
         </div>
     </Modal>
 </div>
@@ -128,7 +164,18 @@
                 title: '身份',
                 key: 'role',
                 align: 'center'
+            },
+            {
+                title: 'QQ昵称',
+                key: 'qqid',
+                align: 'center'
+            },
+            {
+                title: '阵亡情况',
+                key: 'die',
+                align: 'center'
             }],
+            
             roleTable: [],
         },
         created() {
