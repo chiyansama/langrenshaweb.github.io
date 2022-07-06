@@ -22,6 +22,7 @@
     </style>
 </head>
 <body>
+    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=100% height=86 src="https://music.163.com/outchain/player?type=2&id=1353039819&auto=1&height=66"></iframe>
     <h1 style="text-align:center;">欢迎来到狼人杀Web助手【手机端请横屏使用】</h1>
 <div id="app">
     <br>
@@ -98,84 +99,14 @@
         <i-table :columns="roleTableColumn" :data="roleTable" stripe border size="small">
         </i-table>
         <div slot="footer">
-            1.<input type="text"><input type="radio" name="radios" value="1" checked><label>死了啦</label>
-            <input type="radio" name="radios" value="1" checked><label>没死啦</label>
-            <input type="radio" name="radios" value="1" checked><label>放逐啦</label><br>
-            2.<input type="text"><input type="radio" name="radios1" value="2" checked><label>死了啦</label>
-            <input type="radio" name="radios1" value="2" checked><label>没死啦</label>
-            <input type="radio" name="radios1" value="2" checked><label>放逐啦</label><br>
-            3.<input type="text"><input type="radio" name="radios2" value="3" checked><label>死了啦</label>
-            <input type="radio" name="radios2" value="3" checked><label>没死啦</label>
-            <input type="radio" name="radios2" value="3" checked><label>放逐啦</label><br>
-            4.<input type="text"><input type="radio" name="radios3" value="4" checked><label>死了啦</label>
-            <input type="radio" name="radios3" value="4" checked><label>没死啦</label>
-            <input type="radio" name="radios3" value="4" checked><label>放逐啦</label><br>
-            5.<input type="text"><input type="radio" name="radios4" value="5" checked><label>死了啦</label>
-            <input type="radio" name="radios4" value="5" checked><label>没死啦</label>
-            <input type="radio" name="radios4" value="5" checked><label>放逐啦</label><br>
-            6.<input type="text"><input type="radio" name="radios5" value="6" checked><label>死了啦</label>
-            <input type="radio" name="radios5" value="6" checked><label>没死啦</label>
-            <input type="radio" name="radios5" value="6" checked><label>放逐啦</label><br>
-            7.<input type="text"><input type="radio" name="radios6" value="7" checked><label>死了啦</label>
-            <input type="radio" name="radios6" value="7" checked><label>没死啦</label>
-            <input type="radio" name="radios6" value="7" checked><label>放逐啦</label><br>
-            8.<input type="text"><input type="radio" name="radios7" value="8" checked><label>死了啦</label>
-            <input type="radio" name="radios7" value="8" checked><label>没死啦</label>
-            <input type="radio" name="radios7" value="8" checked><label>放逐啦</label><br>
-            9.<input type="text"><input type="radio" name="radios8" value="9" checked><label>死了啦</label>
-            <input type="radio" name="radios8" value="9" checked><label>没死啦</label>
-            <input type="radio" name="radios8" value="9" checked><label>放逐啦</label><br>
-            10.<input type="text"><input type="radio" name="radios9" value="10" checked><label>死了啦</label>
-            <input type="radio" name="radios9" value="10" checked><label>没死啦</label>
-            <input type="radio" name="radios9" value="10" checked><label>放逐啦</label><br>
-            11.<input type="text"><input type="radio" name="radios10" value="11" checked><label>死了啦</label>
-            <input type="radio" name="radios10" value="11" checked><label>没死啦</label>
-            <input type="radio" name="radios10" value="11" checked><label>放逐啦</label><br>
-            12.<input type="text">
-            <input type="radio" name="radios11" value="12" checked><label>死了啦</label>
-            <input type="radio" name="radios11" value="12" checked><label>没死啦</label>
-            <input type="radio" name="radios11" value="12" checked><label>放逐啦</label>
         </div>
-<input type="button" value="倒计时30秒【白天】" name="get_msg" onclick="set_time(this)"/> 
-<script>
-var init_down_time = 30;			    /*倒计时总时长*/
-var down_time = 30;				/*倒计时变量*/
-function set_time(val) 
-{ 	
-	if(down_time == 0) { 
-		val.removeAttribute("disabled");    	/*移除框的属性*/
-		val.value="倒计时30秒【白天】"; 
-		down_time = init_down_time;
-	}else{ 
-		val.setAttribute("disabled",true); 		/*设置框的属性*/
-		val.value="倒计时30秒【白天】(" + down_time + ")"; 
-		down_time--; 
-			
-		setTimeout(function(){set_time(val)},1000);   	/*设置一秒*/
-	}  							
-} 
-</script>;
-<input type="button" value="倒计时40【晚上】" name="get_msg1" onclick="set_time(this)"/> 
-<script>
-    var init_down_time = 40;			    /*倒计时总时长*/
-    var down_time = 40;				/*倒计时变量*/
-    function set_time(val) 
-    { 	
-        if(down_time == 0) { 
-            val.removeAttribute("disabled");    	/*移除框的属性*/
-            val.value="倒计时40秒【晚上】"; 
-            down_time = init_down_time;
-        }else{ 
-            val.setAttribute("disabled",true); 		/*设置框的属性*/
-            val.value="倒计时40秒【晚上】(" + down_time + ")"; 
-            down_time--; 
-                
-            setTimeout(function(){set_time(val)},1000);   	/*设置一秒*/
-        }  							
-    } 
-    </script>
-    </Modal>
-</div>
+        <div flex-direction:column>
+            <iframe src="https://www.lddgo.net/common/stopwatch" width="500px" height= "200px" name="topFrame"
+            scrolling="Yes"  noresize="noresize" frameborder="1" id="topFrame"></iframe>
+        </div>
+        <button class="ui button" type="submit" onclick="window.open('https://docs.qq.com/sheet/DSkx0RFVXZ1R3eWh2')"><i class="edit icon"></i>编辑玩家信息</button>
+        <h2>你也可以：使用手机扫描下方二维码编辑</h2>
+        <img src="./cardImage/erweima.png" />
 <script>
     new Vue({
         el: '#app',
@@ -203,16 +134,7 @@ function set_time(val)
                 key: 'role',
                 align: 'center'
             },
-            {
-                title: 'QQ昵称',
-                key: 'qqid',
-                align: 'center'
-            },
-            {
-                title: '阵亡情况',
-                key: 'die',
-                align: 'center'
-            }],
+            ],
             
             roleTable: [],
         },
@@ -222,67 +144,67 @@ function set_time(val)
                     name: '村民',
                     description: '好人阵营最强角色',
                     number: 3,
-                    cardImage: './cardImage/村民.jpg'
+                    cardImage: './cardImage/村民.jpg',
                 },
                 {
                     name: '狼人',
                     description: '一个小知识：金刚狼(wolverine)并不是狼人。',
                     number: 3,
-                    cardImage: './cardImage/狼人.jpg'
+                    cardImage: './cardImage/狼人.jpg',
                 },
                 {
                     name: '预言家',
                     description: '一个没有什么用的角色。',
                     number: 1,
-                    cardImage: './cardImage/预言家.jpg'
+                    cardImage: './cardImage/预言家.jpg',
                 },
                 {
                     name: '女巫',
                     description: '一个被影子觊觎的角色。常见功能是瞬间领导狼人方获得胜利。',
                     number: 1,
-                    cardImage: './cardImage/女巫.jpg'
+                    cardImage: './cardImage/女巫.jpg',
                 },
                 {
                     name: '猎人',
                     description: '一个同样没有什么用的角色。',
                     number: 1,
-                    cardImage: './cardImage/猎人.jpg'
+                    cardImage: './cardImage/猎人.jpg',
                 },
                 {
                     name: '守卫',
                     description: '一个还是没有什么用的角色',
                     number: 0,
-                    cardImage: './cardImage/守卫.jpg'
+                    cardImage: './cardImage/守卫.jpg',
                 },
                 {
                     name: '白痴',
                     description: '这还要解释什么？？？',
                     number: 0,
-                    cardImage: './cardImage/白痴.jpg'
+                    cardImage: './cardImage/白痴.jpg',
                 },
                 {
                     name: '野孩子',
                     description: '呃。',
                     number: 0,
-                    cardImage: './cardImage/野孩子.jpg'
+                    cardImage: './cardImage/野孩子.jpg',
                 },
                 {
                     name: '影子',
                     description: '嘿嘿嘿嘿嘿嘿嘿嘿嘿',
                     number: 0,
-                    cardImage: './cardImage/小女孩.jpg'
+                    cardImage: './cardImage/小女孩.jpg',
                 },
                 {
                     name: '骑士',
                     description: '「我的这把刀，是涂满了毒药的短刀。」',
                     number: 0,
-                    cardImage: './cardImage/老骑士与生锈的剑.jpg'
+                    cardImage: './cardImage/老骑士与生锈的剑.jpg',
                 },
                 {
                     name: '白狼王',
                     description: '不爆捏着过年？',
                     number: 0,
-                    cardImage: './cardImage/白狼王.jpg'
+                    cardImage: './cardImage/白狼王.jpg',
                 },]
                 },500)
             },
@@ -298,7 +220,23 @@ function set_time(val)
                 name: '',
                     description: '',
                     number: 0,
-                    cardImage: ''
+                    cardImage: '',
+                    qqname:''
+            }
+            },
+            del(i){
+                console.log(i);
+                this.roles.splice(i,1)
+            },
+            tianjia(){
+             console.log(this.rolex);
+             this.roles.push(this.rolex);
+             this.rolex = {
+                name: '',
+                    description: '',
+                    number: 0,
+                    cardImage: '',
+                    qqname:''
             }
             },
             handleGameStart() {
